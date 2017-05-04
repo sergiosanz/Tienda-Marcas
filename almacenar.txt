@@ -1,0 +1,79 @@
+<!-- 	
+	POSIBLEMENTE EN EL EXAMEN.
+	CARRITO DE LA COMPRA.
+	LUGAR DE ALMACENAMIENTO TEMPORAL.
+-->
+
+<html>
+	<head>
+		<meta content="text/html"; charset="utf-8">
+		<title>Carro de la compra</title>
+		<link rel ="stylesheet" type="text/css" href="formulario.css">
+		<script type="application/javascript">
+			window.onload = ver;
+			
+		</script>
+	</head>
+	<body>
+		
+		<div id="principal">
+			<h1>MAMAZON</h1>
+			<div id="productos">
+				<table>
+					<tr>
+						<th>IMAGEN</th>
+						<th>DESCRIPCIÓN</th>
+						<th>PRECIO</th>
+						<th>CANTIDAD</th>
+					</tr>
+					<tr>
+						<td><img src="iconos2/dell.jpg"></td>
+						<td><span id="d1">Ordenador Dell</span></td>
+						<td><span id="p1">998,99€</span></td>
+						<td><input type="number" id="c1" min="1" maxlength="10" value="1"></td>
+						<td><input type="button" value="Comprar" onclick="almacenar(1)"></td>
+					</tr>
+					<tr>
+						<td><img src="iconos2/Sony.jpg"></td>
+						<td><span id="d1">Ordenador Sony</span></td>
+						<td><span id="p1">999€</span></td>
+						<td><input type="number" id="c2" min="1" maxlength="10" value="1"></td>
+						<td><input type="button" value="Comprar" onclick="almacenar(2)"></td>
+					</tr>
+					<tr>
+						<td><img src="iconos2/Apple.jpg"></td>
+						<td><span id="d1">Ordenador Apple</span></td>
+						<td><span id="p1">600,99€</span></td>
+						<td><input type="number" id="c3" min="1" maxlength="10" value="1"></td>
+						<td><input type="button" value="Comprar" onclick="almacenar(3)"></td>
+					</tr>
+					<tr>
+						<td><img src="iconos2/pb.jpg"></td>
+						<td><span id="d1">Ordenador PBell</span></td>
+						<td><span id="p1">998,99€</span></td>
+						<td><input type="number" id="c4" min="1" maxlength="10" value="1"></td>
+						<td><input type="button" value="Comprar" onclick="almacenar(4)"></td>
+					</tr>
+					<tr>
+						<td><img src="iconos2/acer.jpg"></td>
+						<td><span id="d1">Ordenador Acer</span></td>
+						<td><span id="p1">650,99€</span></td>
+						<td><input type="number" id="c5" min="1" maxlength="10" value="1"></td>
+						<td><input type="button" value="Comprar" onclick="almacenar(5)"></td>
+					</tr>
+				</table>
+			</div>
+			<div id="carrito">
+				<h4>Este es el estado del carrito</h4>
+				<div id="cesta"></div>
+				<div id="total"></div>
+			</div>
+			<div id="pie">
+				<h4>Este es el estado del carrito</h4>
+				<div id="cesta"></div>
+				<div id="total"></div>
+			</div>
+		</div>
+
+	</body>
+</html>

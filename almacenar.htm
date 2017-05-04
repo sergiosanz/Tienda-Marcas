@@ -1,0 +1,97 @@
+<!-- 	
+	POSIBLEMENTE EN EL EXAMEN.
+	CARRITO DE LA COMPRA.
+	LUGAR DE ALMACENAMIENTO TEMPORAL.
+-->
+
+<html>
+	<head>
+		<meta content="text/html"; charset="utf-8">
+		<title>Carro de la compra</title>
+		<link rel ="stylesheet" type="text/css" href="formulario.css">
+		<script type="application/javascript">
+			window.onload = ver;
+			var productos = ['dell','sony','apple','pb','acer'];
+			function ver(){
+				document.getElementById("cesta").innerHTML="";
+				if(sessionStorage.length<1){
+					document.getElementById("cesta").innerHTML="<h5>No tienes productos en el carrito</h5>";
+				}else{	
+					document.getElementById("cesta").innerHTML="<table class='pro'><tr><td>PRO</td><td>PRECIO</td><td>UNDS</td><td>TOTAL</td><td></td></tr></table>";
+					for(i=0;i<=productos.length;i++)
+						if(sessionStorage.getItem(productos[i])!=null){
+							var descripcion= sessionStorage.getItem(productos[i]);
+							var precio= sessionStorage.getItem(productos[i]);
+							var cantidad= sessionStorage.getItem(productos[i]);
+							var precioTotalProducto= parseInt(precio)* parseInt(cantidad);
+							document.getElementById("cesta").innerHTML+="<table class='pro'><tr><td>"+descripcion+"</td><td>"+precio+"</td><td>"+cantidad+"</td><td>"+precioTotalProducto+"</td><td><img src='iconos2/eliminar.jpg' id='eli' onclick='borrarElemento()'></td></tr></table>"
+				}
+			}
+			
+			function borrarElemento(codigo){
+			}
+			
+			function almacenar(indice){
+				var descripcion= document.getElementById(indice).innerHTML;
+				var precio= document.getElementById(indice).innerHTML;
+				var cantidad= document.getElementById(indice).value;
+				var precioTotalProducto= parseInt(precio)+parseInt(cantidad);
+				if(sessionStorage.getItem(indice)==null){
+					sessionStorage.setItem(indice, descripcion);
+					sessionStorage.setItem(indice, precio);
+					sessionStorage.setItem(indice, cantidad);		
+				}else{
+					var cantidadActual= sessionStorage.getItem(indice);
+					var cantidadTotal= parseInt(cantidadActual)+ parseInt(cantidad);
+					sessionStorage.setItem(indice, cantidadTotal);
+				}
+				ver()
+			}
+
+		</script>	</head>
+	<body>
+		
+		<div id="principal">
+			<h1>LA TIENDA DE LA TIA PAQUITA</h1>
+			<div id="productos">
+				<table>
+					<tr>
+						<th>IMAGEN</th>
+						<th>DESCRIPCION</th>
+					</tr>
+					<tr>
+						<td><img src="iconos2/dell.jpg"></td>
+						<td><span id="d1">Ordenador Dell</span></td>
+						<td><input type="button" value="Comprar" onclick="almacenar('dell')"></td>
+					</tr>
+					<tr>
+						<td><img src="iconos2/Sony.jpg"></td>
+						<td><span id="d1">Ordenador Sony</span></td>
+						<td><input type="button" value="Comprar" onclick="almacenar('sony')"></td>
+					</tr>
+					<tr>
+						<td><img src="iconos2/Apple.jpg"></td>
+						<td><span id="d1">Ordenador Apple</span></td>
+						<td><input type="button" value="Comprar" onclick="almacenar('apple')"></td>
+					</tr>
+					<tr>
+						<td><img src="iconos2/pb.jpg"></td>
+						<td><span id="d1">Ordenador PBell</span></td>
+						<td><input type="button" value="Comprar" onclick="almacenar('pbell')"></td>
+					</tr>
+					<tr>
+						<td><img src="iconos2/acer.jpg"></td>
+						<td><span id="d1">Ordenador Acer</span></td>
+						<td><input type="button" value="Comprar" onclick="almacenar('acer')"></td>
+					</tr>
+				</table>
+			</div>
+			<div id="carrito">
+				<h4>Este es el estado del carrito</h4>
+				<div id="cesta"></div>
+				<div id="total"></div>
+			</div>
+		</div>
+
+	</body>
+</html>
